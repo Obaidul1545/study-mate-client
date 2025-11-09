@@ -1,7 +1,19 @@
 import { GraduationCap } from 'lucide-react';
+import { use } from 'react';
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../Context/AuthContext';
 
 const Navbar = () => {
+  const { user, logOut } = use(AuthContext);
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        console.log('logout success');
+      })
+      .catch();
+  };
+
   const links = (
     <>
       <NavLink to="/" className="custom-style">
@@ -19,18 +31,30 @@ const Navbar = () => {
       <NavLink to="/profile" className="custom-style">
         Profile
       </NavLink>
-      <Link
-        to="/login"
-        className="px-5 py-2 bg-[#FF6B6B] text-white rounded-lg hover:bg-[#ff5252] transition-colors"
-      >
-        Login
-      </Link>
-      <Link
-        to="/register"
-        className="px-5 py-2 bg-[#00B894] text-white rounded-lg hover:bg-[#00a085] transition-colors"
-      >
-        Register
-      </Link>
+
+      {user ? (
+        <Link
+          onClick={handleLogout}
+          className="px-5 py-2 bg-[#FF6B6B] text-white rounded-lg hover:bg-[#ff5252] transition-colors"
+        >
+          Log Out
+        </Link>
+      ) : (
+        <>
+          <Link
+            to="/login"
+            className="px-5 py-2 bg-[#FF6B6B] text-white rounded-lg hover:bg-[#ff5252] transition-colors"
+          >
+            Login
+          </Link>
+          <Link
+            to="/register"
+            className="px-5 py-2 bg-[#00B894] text-white rounded-lg hover:bg-[#00a085] transition-colors"
+          >
+            Register
+          </Link>{' '}
+        </>
+      )}
     </>
   );
 
