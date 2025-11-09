@@ -1,9 +1,22 @@
 import { Eye, EyeOff, LogIn } from 'lucide-react';
-import { useState } from 'react';
+import { use, useState } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../../Context/AuthContext';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { signInGoogle } = use(AuthContext);
+
+  const handleSignInGoogle = () => {
+    console.log('click');
+    signInGoogle()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div className="flex justify-center mt-10">
@@ -66,7 +79,10 @@ const Login = () => {
                   Or continue with
                 </span>
               </div>
-              <button className="btn bg-white text-black border-[#e5e5e5]">
+              <button
+                onClick={handleSignInGoogle}
+                className="btn bg-white text-black border-[#e5e5e5]"
+              >
                 <svg
                   aria-label="Google logo"
                   width="16"
