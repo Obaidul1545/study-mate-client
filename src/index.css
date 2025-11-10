@@ -22,3 +22,14 @@
 .custom-style {
   @apply text-[#2D3436] hover:text-[#FF6B6B] hover:underline transition-colors;
 }
+
+.custom-swiper .swiper-button-next,
+.custom-swiper .swiper-button-prev {
+  color: white;
+  background-color: #ffffff4d;
+  border-radius: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

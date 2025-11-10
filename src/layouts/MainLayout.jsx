@@ -4,11 +4,11 @@ import Footer from '../components/Footer';
 
 const MainLayout = () => {
   return (
-    <div>
-      <header>
+    <div className="flex flex-col min-h-screen">
+      <header className="sticky top-0 z-50">
         <Navbar></Navbar>
       </header>
-      <main className="container mx-auto">
+      <main className="grow">
         <Outlet></Outlet>
       </main>
       <footer>
