@@ -1,4 +1,4 @@
-import { GraduationCap } from 'lucide-react';
+import { GraduationCap, User } from 'lucide-react';
 import { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Context/AuthContext';
@@ -22,17 +22,78 @@ const Navbar = () => {
       <NavLink to="/find-partners" className="custom-style">
         Find Partner
       </NavLink>
-      <NavLink to="/my-connections" className="custom-style">
-        My Connections
-      </NavLink>
-      <NavLink to="/create-profile" className="custom-style">
-        Create Profile
-      </NavLink>
-      <NavLink to="/profile" className="custom-style">
-        Profile
-      </NavLink>
+      {user && (
+        <>
+          <NavLink to="/my-connections" className="custom-style">
+            My Connections
+          </NavLink>
+          <NavLink to="/create-profile" className="custom-style">
+            Create Partner Profile
+          </NavLink>
+        </>
+      )}
+
+      {/* copy */}
 
       {user ? (
+        <div className="dropdown dropdown-end z-50">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost btn-circle avatar"
+          >
+            <div className="w-9 border-2 border-gray-300 rounded-full">
+              <img
+                alt="Tailwind CSS Navbar component"
+                referrerPolicy="no-referrer"
+                src={
+                  user.photoURL ||
+                  'https://i.ibb.co.com/sdGfkZS4/dummy-user.png'
+                }
+              />
+            </div>
+          </div>
+          <ul
+            tabIndex="-1"
+            className="menu  menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
+          >
+            <div className=" pb-3 border-b border-b-gray-200">
+              <li className="text-sm font-bold">{user.displayName}</li>
+              <li className="text-xs">{user.email}</li>
+            </div>
+
+            <Link
+              to="/profile"
+              className="custom-style inline-flex items-center my-3"
+            >
+              <User size={18} /> Profile
+            </Link>
+            <Link
+              onClick={handleLogout}
+              className="px-5 py-2 bg-[#FF6B6B] text-white rounded-lg hover:bg-[#ff5252] transition-colors"
+            >
+              Log Out
+            </Link>
+          </ul>
+        </div>
+      ) : (
+        <>
+          <Link
+            to="/login"
+            className="px-5 py-2 bg-[#FF6B6B] text-white rounded-lg hover:bg-[#ff5252] transition-colors"
+          >
+            Login
+          </Link>
+          <Link
+            to="/register"
+            className="px-5 py-2 bg-[#00B894] text-white rounded-lg hover:bg-[#00a085] transition-colors"
+          >
+            Register
+          </Link>{' '}
+        </>
+      )}
+
+      {/* {user ? (
         <Link
           onClick={handleLogout}
           className="px-5 py-2 bg-[#FF6B6B] text-white rounded-lg hover:bg-[#ff5252] transition-colors"
@@ -54,7 +115,7 @@ const Navbar = () => {
             Register
           </Link>{' '}
         </>
-      )}
+      )} */}
     </>
   );
 
