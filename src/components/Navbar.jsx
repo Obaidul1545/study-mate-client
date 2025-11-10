@@ -92,30 +92,6 @@ const Navbar = () => {
           </Link>{' '}
         </>
       )}
-
-      {/* {user ? (
-        <Link
-          onClick={handleLogout}
-          className="px-5 py-2 bg-[#FF6B6B] text-white rounded-lg hover:bg-[#ff5252] transition-colors"
-        >
-          Log Out
-        </Link>
-      ) : (
-        <>
-          <Link
-            to="/login"
-            className="px-5 py-2 bg-[#FF6B6B] text-white rounded-lg hover:bg-[#ff5252] transition-colors"
-          >
-            Login
-          </Link>
-          <Link
-            to="/register"
-            className="px-5 py-2 bg-[#00B894] text-white rounded-lg hover:bg-[#00a085] transition-colors"
-          >
-            Register
-          </Link>{' '}
-        </>
-      )} */}
     </>
   );
 
