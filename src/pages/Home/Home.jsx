@@ -1,14 +1,26 @@
-import React, { use } from 'react';
-import { AuthContext } from '../../Context/AuthContext';
 import HeroSection from '../../components/HeroSection';
+import TopPartners from './TopPartners';
+import HowItWorks from './HowItWorks';
+import ExtraSections from './ExtraSections';
+import Review from './Review';
 
 const Home = () => {
-  const { user } = use(AuthContext);
-
   return (
     <>
       <section>
         <HeroSection></HeroSection>
+      </section>
+      <section>
+        <TopPartners></TopPartners>
+      </section>
+      <section>
+        <HowItWorks></HowItWorks>
+      </section>
+      <section>
+        <Review></Review>
+      </section>
+      <section>
+        <ExtraSections></ExtraSections>
       </section>
     </>
   );

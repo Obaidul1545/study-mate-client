@@ -13,7 +13,7 @@ import { AuthContext } from '../Context/AuthContext';
 const Footer = () => {
   const { user } = use(AuthContext);
   return (
-    <footer className="bg-[#2D3436] text-white mt-20">
+    <footer className="bg-[#2D3436] text-white ">
       <div className="container mx-auto px-2 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
