@@ -11,8 +11,11 @@ const CreatePartner = () => {
     const form = e.target;
     const name = form.name.value;
     const profileimage = form.photoUrl.value;
+    const subject = form.subject.value;
     const studyMode = form.studyMode.value;
     const availabilityTime = form.availability.value;
+    const rating = form.rating.value;
+    const partnerCount = form.partnerCount.value;
     const location = form.location.value;
     const experienceLevel = form.experience.value;
     const email = form.email.value;
@@ -20,10 +23,13 @@ const CreatePartner = () => {
     const newPartner = {
       name,
       profileimage,
+      subject,
       studyMode,
       availabilityTime,
       location,
       experienceLevel,
+      rating,
+      partnerCount,
       email,
     };
     axiosInstance
@@ -85,6 +91,18 @@ const CreatePartner = () => {
               />
             </div>
 
+            {/* Photo URL */}
+            <div>
+              <label className="block mb-2 text-[#2D3436]">Photo URL</label>
+              <input
+                type="url"
+                name="photoUrl"
+                required
+                className="w-full px-4 py-3 bg-[#F5F5F5] border border-gray-200 rounded-lg"
+                placeholder="Enter your photo url"
+              />
+            </div>
+
             {/* Subject */}
             <div>
               <label className="block mb-2 text-[#2D3436]">
@@ -129,7 +147,31 @@ const CreatePartner = () => {
               </select>
             </div>
 
-            {/* Experience Level */}
+            {/* Rating */}
+            <div>
+              <label className="block mb-2 text-[#2D3436]">Rating *</label>
+              <input
+                type="text"
+                name="rating"
+                required
+                className="w-full px-4 py-3 bg-[#F5F5F5] border border-gray-200 rounded-lg "
+                placeholder="Out of 5 - example 4.6"
+              />
+            </div>
+
+            {/* Partner Count */}
+            <div>
+              <label className="block mb-2 text-[#2D3436]">Partner Count</label>
+              <input
+                type="text"
+                name="partnerCount"
+                defaultValue={0}
+                required
+                className="w-full px-4 py-3 bg-[#F5F5F5] border border-gray-200 rounded-lg "
+              />
+            </div>
+
+            {/* Study Mode */}
             <div>
               <label className="block mb-2 text-[#2D3436]">Study Mode *</label>
               <select
@@ -138,8 +180,8 @@ const CreatePartner = () => {
                 className="w-full px-4 py-3 bg-[#F5F5F5] border border-gray-200 rounded-lg "
               >
                 <option value="">Select your study mode</option>
-                <option value="Beginner Level">Offline</option>
-                <option value="Intermediate Level">Online</option>
+                <option value="Offline">Offline</option>
+                <option value="Online">Online</option>
               </select>
             </div>
 
@@ -154,18 +196,6 @@ const CreatePartner = () => {
                 required
                 className="w-full px-4 py-3 bg-[#F5F5F5] border border-gray-200 rounded-lg "
                 placeholder="Weekdays 5-8 PM,"
-              />
-            </div>
-
-            {/* Photo URL */}
-            <div>
-              <label className="block mb-2 text-[#2D3436]">Photo URL</label>
-              <input
-                type="url"
-                name="photoUrl"
-                required
-                className="w-full px-4 py-3 bg-[#F5F5F5] border border-gray-200 rounded-lg"
-                placeholder="Enter your photo url"
               />
             </div>
 
