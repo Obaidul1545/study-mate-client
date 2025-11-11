@@ -3,7 +3,7 @@ import { AuthContext } from '../../Context/AuthContext';
 import HeroSection from '../../components/HeroSection';
 
 const Home = () => {
-  const { name } = use(AuthContext);
+  const { user } = use(AuthContext);
 
   return (
     <>
