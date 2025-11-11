@@ -1,9 +1,10 @@
 import { UserPlus } from 'lucide-react';
-import React, { use } from 'react';
-import { AuthContext } from '../../Context/AuthContext';
+import useAuth from '../../Hooks/useAuth';
+import useAxios from '../../Hooks/useAxios';
 
 const CreatePartner = () => {
-  const { user } = use(AuthContext);
+  const { user } = useAuth();
+  const axiosInstance = useAxios();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,15 +17,26 @@ const CreatePartner = () => {
     const experienceLevel = form.experience.value;
     const email = form.email.value;
 
-    console.log(
+    const newPartner = {
       name,
       profileimage,
       studyMode,
       availabilityTime,
       location,
       experienceLevel,
-      email
-    );
+      email,
+    };
+    axiosInstance
+      .post('/partners', newPartner)
+      .then((data) => {
+        console.log(data.data);
+        if (data.data.insertedId) {
+          alert('seccess');
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

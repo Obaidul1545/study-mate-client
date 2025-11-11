@@ -1,10 +1,9 @@
 import { GraduationCap, User } from 'lucide-react';
-import { use } from 'react';
 import { Link, NavLink } from 'react-router';
-import { AuthContext } from '../Context/AuthContext';
+import useAuth from '../Hooks/useAuth';
 
 const Navbar = () => {
-  const { user, logOut } = use(AuthContext);
+  const { user, logOut } = useAuth();
 
   const handleLogout = () => {
     logOut()
