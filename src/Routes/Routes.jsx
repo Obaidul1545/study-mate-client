@@ -8,6 +8,7 @@ import MyConnections from '../pages/Connections/MyConnections';
 import Profile from '../pages/Profile/Profile';
 import CreatePartner from '../pages/Partners/CreatePartner';
 import PrivateRoute from './PrivateRoute';
+import PartnerDetails from '../pages/Partners/PartnerDetails';
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +30,14 @@ export const router = createBrowserRouter([
       {
         path: 'find-partners',
         element: <FindPartners></FindPartners>,
+      },
+      {
+        path: 'partners-details/:id',
+        element: (
+          <PrivateRoute>
+            <PartnerDetails></PartnerDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: 'my-connections',

@@ -6,10 +6,8 @@ import { Search } from 'lucide-react';
 
 const FindPartners = () => {
   const { setLoading } = useAuth();
-  const [partners, setPartners] = useState([]);
   const axiosInstance = useAxios();
-
-  console.log(partners);
+  const [partners, setPartners] = useState([]);
 
   useEffect(() => {
     setLoading(true);
@@ -24,7 +22,6 @@ const FindPartners = () => {
         setLoading(false);
       });
   }, [axiosInstance, setLoading]);
-
   return (
     <>
       <section className="bg-linear-to-r from-[#FF6B6B] to-[#00B894] text-white py-12">
@@ -36,7 +33,40 @@ const FindPartners = () => {
         </div>
       </section>
 
-      <section className="container mx-auto px-2 sm:px-2 my-10">
+      <section className="container mx-auto px-2 sm:px-4 py-8">
+        <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="relative">
+              <Search
+                size={20}
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+              />
+              <input
+                type="text"
+                placeholder="Search by Subject..."
+                // value={searchQuery}
+                // onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-12 pr-4 py-3 bg-[#F5F5F5] border border-gray-200 rounded-lg "
+              />
+            </div>
+            <div>
+              <select
+                // value={sortBy}
+                // onChange={(e) => setSortBy(e.target.value)}
+                className="w-full px-4 py-3 bg-[#F5F5F5] border border-gray-200 rounded-lg"
+              >
+                <option value="all">All Experience Levels</option>
+                <option value="Beginner Level">Beginner Level</option>
+                <option value="Intermediate Level">Intermediate Level</option>
+                <option value="Advanced Level">Advanced Level</option>
+                <option value="Expert Level">Expert Level</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="container mx-auto px-2 sm:px-2 ">
         <h3 className="text-gray-600 mb-4">All partners: {partners?.length}</h3>
 
         {partners?.length > 0 ? (

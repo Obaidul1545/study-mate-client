@@ -3,9 +3,8 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const PartnersCard = ({ partner }) => {
-  console.log(partner);
-
   const {
+    _id,
     name,
     profileimage,
     subject,
@@ -20,7 +19,7 @@ const PartnersCard = ({ partner }) => {
 
   return (
     <div>
-      <div className="card bg-base-100 shadow-sm">
+      <div className="card bg-base-100 shadow-sm ">
         <figure>
           <img
             src={profileimage}
@@ -55,7 +54,7 @@ const PartnersCard = ({ partner }) => {
 
           <div className="card-actions">
             <Link
-              to={``}
+              to={`/partners-details/${_id}`}
               className="block w-full px-4 py-2 bg-[#FF6B6B] text-white rounded-lg hover:bg-[#ff5252] transition-colors text-center"
             >
               View Profile
