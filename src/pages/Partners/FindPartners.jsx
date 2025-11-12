@@ -5,7 +5,7 @@ import PartnersCard from '../../components/PartnersCard';
 import { Search } from 'lucide-react';
 
 const FindPartners = () => {
-  const { setLoading } = useAuth();
+  const [loading, setLoading] = useState(true);
   const axiosInstance = useAxios();
   const [partners, setPartners] = useState([]);
 
