@@ -1,6 +1,7 @@
 import { UserPlus } from 'lucide-react';
 import useAuth from '../../Hooks/useAuth';
 import useAxios from '../../Hooks/useAxios';
+import { toast } from 'react-toastify';
 
 const CreatePartner = () => {
   const { user } = useAuth();
@@ -37,11 +38,11 @@ const CreatePartner = () => {
       .then((data) => {
         console.log(data.data);
         if (data.data.insertedId) {
-          alert('seccess');
+          toast.success('Create Partner Successful!');
         }
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error.message);
       });
   };
 

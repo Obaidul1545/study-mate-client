@@ -2,6 +2,7 @@ import { Eye, EyeOff, UserPlus } from 'lucide-react';
 import React, { use, useState } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
+import { toast } from 'react-toastify';
 
 const Register = () => {
   const { signInGoogle, createUser } = use(AuthContext);
@@ -35,10 +36,10 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log('create success');
+        toast.success('Register Successful!');
       })
       .then((error) => {
-        console.log(error);
+        toast.error(error.message);
       });
   };
 
@@ -47,9 +48,10 @@ const Register = () => {
     signInGoogle()
       .then((result) => {
         console.log(result.user);
+        toast.success('Login Successful!');
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error.message);
       });
   };
   return (

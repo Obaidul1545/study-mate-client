@@ -26,7 +26,7 @@ const TopPartners = () => {
   return (
     <>
       <section className="container mx-auto px-2 sm:px-4 py-16">
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex flex-col md:flex-row text-center md:text-left gap-5 justify-between items-center mb-8">
           <div>
             <h2 className="mb-2 text-2xl font-semibold">Top Study Partners</h2>
             <p className="text-gray-600">

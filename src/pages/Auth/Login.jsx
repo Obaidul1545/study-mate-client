@@ -2,6 +2,7 @@ import { Eye, EyeOff, LogIn } from 'lucide-react';
 import { use, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -17,13 +18,12 @@ const Login = () => {
 
     signIn(email, password)
       .then(() => {
-        // toast.success('Login Successful!');
+        toast.success('Login Successful!');
         e.target.reset();
         navigate(`${location.state ? location.state : '/'}`);
       })
       .catch((error) => {
-        // toast.error(error.message);
-        console.log(error);
+        toast.error(error.message);
       });
   };
 
@@ -31,10 +31,11 @@ const Login = () => {
     e.preventDefault();
     signInGoogle()
       .then((result) => {
-        console.log(result.user);
+        toast.success('Login Successful!');
+        navigate(`${location.state ? location.state : '/'}`);
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error.message);
       });
   };
 
