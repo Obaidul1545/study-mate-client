@@ -1,7 +1,6 @@
 import {
   ArrowLeft,
   Award,
-  BookOpen,
   Calendar,
   ContactRound,
   Mail,
@@ -11,16 +10,31 @@ import {
 } from 'lucide-react';
 import useAxios from '../../Hooks/useAxios';
 import { useEffect, useState } from 'react';
-import useAuth from '../../Hooks/useAuth';
 import { Link, useParams } from 'react-router';
+import useAuth from '../../Hooks/useAuth';
+import { toast } from 'react-toastify';
 
 const PartnerDetails = () => {
   const axiosInstance = useAxios();
-  const { setLoading } = useAuth();
+  const { user } = useAuth();
   const [partner, setPartner] = useState({});
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
+  const [refetch, setReFetch] = useState(false);
 
-  console.log(partner);
+  useEffect(() => {
+    setLoading(true);
+    axiosInstance
+      .get(`/partner/${id}`)
+      .then((data) => {
+        setPartner(data.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
+  }, [id, refetch]);
 
   const {
     name,
@@ -35,19 +49,24 @@ const PartnerDetails = () => {
     email,
   } = partner || {};
 
-  useEffect(() => {
-    setLoading(true);
-    axiosInstance
-      .get(`/partner/${id}`)
-      .then((data) => {
-        setPartner(data.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoading(false);
+  const handleSendRequest = async () => {
+    try {
+      const data = await axiosInstance.post(`send-request/${id}`, {
+        userEmail: user.email,
       });
-  }, [axiosInstance, id, setLoading]);
+
+      if (data.data.success) {
+        toast.success('Partner request sent successfully!');
+        setReFetch(!refetch);
+      } else {
+        toast.error(data.data.message || 'Failed to send request');
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error('Something went wrong!');
+    }
+  };
+
   return (
     <>
       <div className="">
@@ -102,7 +121,12 @@ const PartnerDetails = () => {
                     </div>
                     <div className="flex items-center gap-2 text-gray-700">
                       <ContactRound size={20} className=" text-[#FF6B6B]" />
-                      <span>Partner Count: {partnerCount}</span>
+                      <span>
+                        Partner Count:{' '}
+                        <span className="px-4 py-1 bg-linear-to-r from-[#FF6B6B]/10 to-[#00B894]/10text-[#2D3436] rounded-lg border border-gray-200">
+                          {partnerCount}{' '}
+                        </span>{' '}
+                      </span>
                     </div>
                     <div className="flex items-center gap-2 text-gray-700">
                       <UserStar size={20} className=" text-[#FF6B6B]" />
@@ -156,7 +180,10 @@ const PartnerDetails = () => {
               </div>
 
               <div className="pt-4 text-end">
-                <button className="w-full font-semibold md:w-auto px-8 py-3 bg-linear-to-r from-[#FF6B6B] to-[#00B894] text-white rounded-lg hover:shadow-lg transition-all text-lg ">
+                <button
+                  onClick={handleSendRequest}
+                  className="w-full font-semibold md:w-auto px-8 py-3 bg-linear-to-r from-[#FF6B6B] to-[#00B894] text-white rounded-lg hover:shadow-lg transition-all text-lg cursor-pointer"
+                >
                   Send Partner Request
                 </button>
               </div>
