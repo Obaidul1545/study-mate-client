@@ -1,6 +1,6 @@
 import { Eye, EyeOff, UserPlus } from 'lucide-react';
 import React, { use, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
 import { toast } from 'react-toastify';
 
@@ -9,6 +9,8 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [nameError, setNameError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleCreateUser = (e) => {
     e.preventDefault();
@@ -36,6 +38,7 @@ const Register = () => {
     createUser(email, password)
       .then(() => {
         toast.success('Register Successful!');
+        navigate(`${location.state ? location.state : '/'}`);
       })
       .then((error) => {
         toast.error(error.message);
@@ -47,6 +50,7 @@ const Register = () => {
     signInGoogle()
       .then(() => {
         toast.success('Login Successful!');
+        navigate(`${location.state ? location.state : '/'}`);
       })
       .catch((error) => {
         toast.error(error.message);
