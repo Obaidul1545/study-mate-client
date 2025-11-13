@@ -31,8 +31,7 @@ const PartnerDetails = () => {
         setPartner(data.data);
         setLoading(false);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         setLoading(false);
       });
   }, [id, refetch, axiosInstance]);

@@ -17,8 +17,7 @@ const TopPartners = () => {
         setTopPartners(data.data);
         setLoading(false);
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
         setLoading(false);
       });
   }, [axiosInstance, setLoading]);

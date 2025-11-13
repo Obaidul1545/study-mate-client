@@ -36,7 +36,6 @@ const CreatePartner = () => {
     axiosInstance
       .post('/partners', newPartner)
       .then((data) => {
-        console.log(data.data);
         if (data.data.insertedId) {
           toast.success('Create Partner Successful!');
         }

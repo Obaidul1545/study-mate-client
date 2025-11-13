@@ -31,11 +31,10 @@ const Register = () => {
     } else {
       setPasswordError('');
     }
-    const photoUrl = e.target.photo.value;
+    // const photoUrl = e.target.photo.value;
 
     createUser(email, password)
-      .then((result) => {
-        const user = result.user;
+      .then(() => {
         toast.success('Register Successful!');
       })
       .then((error) => {
@@ -46,8 +45,7 @@ const Register = () => {
   const handleSignInGoogle = (e) => {
     e.preventDefault();
     signInGoogle()
-      .then((result) => {
-        console.log(result.user);
+      .then(() => {
         toast.success('Login Successful!');
       })
       .catch((error) => {

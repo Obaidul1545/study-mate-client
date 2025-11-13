@@ -18,8 +18,7 @@ const FindPartners = () => {
         setPartners(data.data);
         setLoading(false);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         setLoading(false);
       });
   }, [axiosInstance, setLoading]);
@@ -27,7 +26,6 @@ const FindPartners = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     const search_text = e.target.search.value;
-    console.log(search_text);
     setLoading(true);
     axiosInstance
       .get(`/search?search=${search_text}`)
@@ -35,8 +33,8 @@ const FindPartners = () => {
         setPartners(data.data);
         setLoading(false);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        setLoading(false);
       });
   };
 

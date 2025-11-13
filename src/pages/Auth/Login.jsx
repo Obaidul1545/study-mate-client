@@ -30,7 +30,7 @@ const Login = () => {
   const handleSignInGoogle = (e) => {
     e.preventDefault();
     signInGoogle()
-      .then((result) => {
+      .then(() => {
         toast.success('Login Successful!');
         navigate(`${location.state ? location.state : '/'}`);
       })
