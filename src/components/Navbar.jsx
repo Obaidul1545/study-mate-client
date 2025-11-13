@@ -1,16 +1,31 @@
 import { GraduationCap, User } from 'lucide-react';
 import { Link, NavLink } from 'react-router';
 import useAuth from '../Hooks/useAuth';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+
+  useEffect(() => {
+    const html = document.querySelector('html');
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const handleTheme = (checked) => {
+    setTheme(checked ? 'dark' : 'light');
+  };
 
   const handleLogout = () => {
     logOut()
       .then(() => {
-        console.log('logout success');
+        toast.success('logout successfully!');
       })
-      .catch();
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
 
   const links = (
@@ -67,6 +82,12 @@ const Navbar = () => {
             >
               <User size={18} /> Profile
             </Link>
+            <input
+              onChange={(e) => handleTheme(e.target.checked)}
+              type="checkbox"
+              defaultChecked={localStorage.getItem('theme') === 'dark'}
+              className="toggle mb-3"
+            />
             <Link
               onClick={handleLogout}
               className="px-5 py-2 bg-[#FF6B6B] text-white rounded-lg hover:bg-[#ff5252] transition-colors"
