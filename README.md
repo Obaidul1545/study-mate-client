@@ -10,7 +10,6 @@
 ## Live Links
 
 - **Client Live Link:** https://study-mate-learning.netlify.app/
-- **Server Live Link:** https://study-mate-server-iota.vercel.app/
 
 ---
 

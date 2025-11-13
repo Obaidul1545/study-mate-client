@@ -138,68 +138,64 @@ const MyConnections = () => {
         </div>
       </section>
 
-      {loading ? (
-        <LoadingSpinner />
-      ) : (
-        <section className="container mx-auto px-2 sm:px-4 pb-16">
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="bg-linear-to-r from-[#FF6B6B] to-[#00B894] text-white">
-                    <th className="px-6 py-4 text-center">Name</th>
-                    <th className="px-6 py-4 text-center">Subject</th>
-                    <th className="px-6 py-4 text-center">Study Mode</th>
-                    <th className="px-6 py-4 text-center">Availability Time</th>
-                    <th className="px-6 py-4 text-center">Actions</th>
-                  </tr>
-                </thead>
+      <section className="container mx-auto px-2 sm:px-4 pb-16">
+        <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="bg-linear-to-r from-[#FF6B6B] to-[#00B894] text-white">
+                  <th className="px-6 py-4 text-center">Name</th>
+                  <th className="px-6 py-4 text-center">Subject</th>
+                  <th className="px-6 py-4 text-center">Study Mode</th>
+                  <th className="px-6 py-4 text-center">Availability Time</th>
+                  <th className="px-6 py-4 text-center">Actions</th>
+                </tr>
+              </thead>
 
-                <tbody>
-                  {requests.map((partner) => (
-                    <tr
-                      key={partner._id}
-                      className={`border-b border-gray-100 hover:bg-[#F5F5F5] transition-colors bg-white text-center`}
-                    >
-                      <td className="px-6 py-4 flex gap-3 items-center">
-                        <div className="mask mask-squircle h-12 w-12">
-                          <img src={partner.partnerImage} alt="" />
-                        </div>
-                        <span className="text-[#2D3436] font-semibold">
-                          {partner.partnerName}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4">
-                        <span className="px-3 py-1 bg-[#00B894] text-white text-sm rounded-full">
-                          {partner.partnerSubject}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4">{partner.partnerStudyMode}</td>
-                      <td className="px-6 py-4">{partner.availabilityTime}</td>
-                      <td className="px-6 py-4">
-                        <div className="flex justify-around gap-5">
-                          <button
-                            className="px-4 py-1 bg-[#00B894] text-white rounded-lg hover:bg-[#00a085] transition-colors text-sm cursor-pointer"
-                            onClick={() => handleEditClick(partner)}
-                          >
-                            Update
-                          </button>
-                          <button
-                            className="px-2 py-1 bg-[#FF6B6B] text-white rounded-lg hover:bg-[#ff5252] transition-colors text-sm cursor-pointer inline-flex items-center gap-2 "
-                            onClick={() => handleDelete(partner._id)}
-                          >
-                            <Trash2 size={16} /> Delete
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+              <tbody>
+                {requests.map((partner) => (
+                  <tr
+                    key={partner._id}
+                    className={`border-b border-gray-100 hover:bg-[#F5F5F5] transition-colors bg-white text-center`}
+                  >
+                    <td className="px-6 py-4 flex gap-3 items-center">
+                      <div className="mask mask-squircle h-12 w-12">
+                        <img src={partner.partnerImage} alt="" />
+                      </div>
+                      <span className="text-[#2D3436] font-semibold">
+                        {partner.partnerName}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4">
+                      <span className="px-3 py-1 bg-[#00B894] text-white text-sm rounded-full">
+                        {partner.partnerSubject}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4">{partner.partnerStudyMode}</td>
+                    <td className="px-6 py-4">{partner.availabilityTime}</td>
+                    <td className="px-6 py-4">
+                      <div className="flex justify-around gap-5">
+                        <button
+                          className="px-4 py-1 bg-[#00B894] text-white rounded-lg hover:bg-[#00a085] transition-colors text-sm cursor-pointer"
+                          onClick={() => handleEditClick(partner)}
+                        >
+                          Update
+                        </button>
+                        <button
+                          className="px-2 py-1 bg-[#FF6B6B] text-white rounded-lg hover:bg-[#ff5252] transition-colors text-sm cursor-pointer inline-flex items-center gap-2 "
+                          onClick={() => handleDelete(partner._id)}
+                        >
+                          <Trash2 size={16} /> Delete
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {isModalOpen && (
         <dialog
