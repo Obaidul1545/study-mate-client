@@ -47,7 +47,6 @@ const Navbar = () => {
         </>
       )}
 
-      {/* copy */}
 
       {user ? (
         <div className="dropdown dropdown-end z-50">

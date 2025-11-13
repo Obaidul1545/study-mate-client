@@ -116,7 +116,6 @@ const CreatePartner = () => {
               />
             </div>
 
-            {/* Location */}
             <div>
               <label className="block mb-2 text-[#2D3436]">Location *</label>
               <input

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import useAuth from '../../Hooks/useAuth';
 import { Link } from 'react-router';
 import { BookOpen, Calendar, Edit, Mail, MapPin } from 'lucide-react';

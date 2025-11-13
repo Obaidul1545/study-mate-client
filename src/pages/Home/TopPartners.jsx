@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import useAxios from '../../Hooks/useAxios';
-import useAuth from '../../Hooks/useAuth';
 import PartnersCard from '../../components/PartnersCard';
 import { Link } from 'react-router';
 import LoadingSpinner from '../../components/LoadingSpinner';
 
 const TopPartners = () => {
-  // const { setLoading } = useAuth();
   const [loading, setLoading] = useState(true);
   const axiosInstance = useAxios();
   const [topPartners, setTopPartners] = useState([]);

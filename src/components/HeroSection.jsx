@@ -90,42 +90,6 @@ const HeroSection = () => {
             </SwiperSlide>
           </Swiper>
         </div>
-
-        {/* <div className="relative max-w-4xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-12 text-center">
-            <h2 className="text-3xl mb-4" style={{ fontWeight: 600 }}>
-              {carouselSlides[currentSlide].title}
-            </h2>
-            <p className="text-xl text-white/90">
-              {carouselSlides[currentSlide].description}
-            </p>
-          </div>
-
-          <button
-            onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 p-3 rounded-full transition-colors"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 p-3 rounded-full transition-colors"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button> */}
-
-        {/* <div className="flex justify-center gap-2 mt-6">
-            {carouselSlides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  index === currentSlide ? 'bg-white w-8' : 'bg-white/50'
-                }`}
-              />
-            ))} */}
-        {/* </div>
-        </div> */}
       </div>
     </div>
   );

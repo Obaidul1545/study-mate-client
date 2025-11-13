@@ -9,8 +9,8 @@
 
 ## Live Links
 
-- **Client Live Link:** [Your Netlify / Surge URL Here]
-- **Server Live Link:** [Your Vercel URL Here]
+- **Client Live Link:** https://study-mate-learning.netlify.app/
+- **Server Live Link:** https://study-mate-server-iota.vercel.app/
 
 ---
 

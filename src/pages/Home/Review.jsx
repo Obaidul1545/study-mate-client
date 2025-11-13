@@ -1,5 +1,5 @@
 import { Quote, Star } from 'lucide-react';
-import React from 'react';
+
 
 const Review = () => {
   return (
