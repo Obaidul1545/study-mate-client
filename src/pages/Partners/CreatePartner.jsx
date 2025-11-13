@@ -60,11 +60,12 @@ const CreatePartner = () => {
         </div>
       </section>
 
-      {/* Form */}
-      <section className="max-w-3xl mx-auto px-2 sm:px-6 lg:px-6 py-12">
+      <section
+        data-aos="zoom-in"
+        className="max-w-3xl mx-auto px-2 sm:px-6 lg:px-6 py-12"
+      >
         <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name */}
             <div>
               <label className="block mb-2 text-[#2D3436]">Full Name *</label>
               <input
@@ -76,7 +77,6 @@ const CreatePartner = () => {
               />
             </div>
 
-            {/* Email */}
             <div>
               <label className="block mb-2 text-[#2D3436]">
                 Email Address *
@@ -92,7 +92,6 @@ const CreatePartner = () => {
               />
             </div>
 
-            {/* Photo URL */}
             <div>
               <label className="block mb-2 text-[#2D3436]">Photo URL</label>
               <input
@@ -104,7 +103,6 @@ const CreatePartner = () => {
               />
             </div>
 
-            {/* Subject */}
             <div>
               <label className="block mb-2 text-[#2D3436]">
                 Primary Subject *
@@ -130,7 +128,6 @@ const CreatePartner = () => {
               />
             </div>
 
-            {/* Experience Level */}
             <div>
               <label className="block mb-2 text-[#2D3436]">
                 Experience Level *
@@ -148,7 +145,6 @@ const CreatePartner = () => {
               </select>
             </div>
 
-            {/* Rating */}
             <div>
               <label className="block mb-2 text-[#2D3436]">Rating *</label>
               <input
@@ -160,7 +156,6 @@ const CreatePartner = () => {
               />
             </div>
 
-            {/* Partner Count */}
             <div>
               <label className="block mb-2 text-[#2D3436]">Partner Count</label>
               <input
@@ -172,7 +167,6 @@ const CreatePartner = () => {
               />
             </div>
 
-            {/* Study Mode */}
             <div>
               <label className="block mb-2 text-[#2D3436]">Study Mode *</label>
               <select
@@ -186,7 +180,6 @@ const CreatePartner = () => {
               </select>
             </div>
 
-            {/* Availability */}
             <div>
               <label className="block mb-2 text-[#2D3436]">
                 Availability Time
@@ -200,7 +193,6 @@ const CreatePartner = () => {
               />
             </div>
 
-            {/* Submit Button */}
             <div className="pt-4">
               <button
                 type="submit"
@@ -212,7 +204,6 @@ const CreatePartner = () => {
           </form>
         </div>
 
-        {/* Info Box */}
         <div className="mt-8 bg-linear-to-r from-[#FF6B6B]/10 to-[#00B894]/10 rounded-xl p-6 border border-[#FF6B6B]/20">
           <h4 className="mb-2 text-[#2D3436]">Profile Tips</h4>
           <ul className="space-y-2 text-sm text-gray-700">

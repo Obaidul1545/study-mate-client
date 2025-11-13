@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../Hooks/useAuth';
+
 import useAxios from '../../Hooks/useAxios';
 import PartnersCard from '../../components/PartnersCard';
 import { Search } from 'lucide-react';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 const FindPartners = () => {
   const [loading, setLoading] = useState(true);
   const axiosInstance = useAxios();
   const [partners, setPartners] = useState([]);
-  const [experienceFilter, setExperienceFilter] = useState('all');
 
   useEffect(() => {
     setLoading(true);
@@ -90,23 +90,32 @@ const FindPartners = () => {
       </section>
 
       <section className="container mx-auto px-2 sm:px-2 ">
-        <h3 className="text-gray-600 mb-4">All partners: {partners?.length}</h3>
+        <h3 className="text-gray-600 mb-4">
+          Show partners: {partners?.length}
+        </h3>
 
-        {partners?.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {partners.map((partner) => (
-              <PartnersCard key={partners._id} partner={partner}></PartnersCard>
-            ))}
-          </div>
+        {loading ? (
+          <LoadingSpinner />
         ) : (
-          <div className="text-center py-16">
-            <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <Search size={48} className=" text-gray-400" />
-            </div>
-            <h3 className="mb-2">No partners found</h3>
-            <p className="text-gray-600">
-              Try adjusting your search or filters
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {partners?.length === 0 ? (
+              <div className="text-center py-16 col-span-3">
+                <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Search size={48} className=" text-gray-400" />
+                </div>
+                <h3 className="mb-2">No partners found</h3>
+                <p className="text-gray-600">
+                  Try adjusting your search or filters
+                </p>
+              </div>
+            ) : (
+              partners.map((partner) => (
+                <PartnersCard
+                  key={partners._id}
+                  partner={partner}
+                ></PartnersCard>
+              ))
+            )}
           </div>
         )}
       </section>

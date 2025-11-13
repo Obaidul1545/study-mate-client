@@ -9,11 +9,13 @@ import Profile from '../pages/Profile/Profile';
 import CreatePartner from '../pages/Partners/CreatePartner';
 import PrivateRoute from './PrivateRoute';
 import PartnerDetails from '../pages/Partners/PartnerDetails';
+import ErrorPage from '../components/ErrorPage';
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,

@@ -3,9 +3,11 @@ import useAxios from '../../Hooks/useAxios';
 import useAuth from '../../Hooks/useAuth';
 import PartnersCard from '../../components/PartnersCard';
 import { Link } from 'react-router';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 const TopPartners = () => {
-  const { setLoading } = useAuth();
+  // const { setLoading } = useAuth();
+  const [loading, setLoading] = useState(true);
   const axiosInstance = useAxios();
   const [topPartners, setTopPartners] = useState([]);
 
@@ -40,11 +42,15 @@ const TopPartners = () => {
             View All
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {topPartners.map((partner) => (
-            <PartnersCard key={partner._id} partner={partner} />
-          ))}
-        </div>
+        {loading ? (
+          <LoadingSpinner />
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {topPartners.map((partner) => (
+              <PartnersCard key={partner._id} partner={partner} />
+            ))}
+          </div>
+        )}
       </section>
     </>
   );

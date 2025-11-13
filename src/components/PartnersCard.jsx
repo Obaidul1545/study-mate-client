@@ -1,5 +1,5 @@
 import { MapPin, Star } from 'lucide-react';
-import React from 'react';
+
 import { Link } from 'react-router';
 
 const PartnersCard = ({ partner }) => {
@@ -9,16 +9,13 @@ const PartnersCard = ({ partner }) => {
     profileimage,
     subject,
     studyMode,
-    availabilityTime,
     location,
     experienceLevel,
     rating,
-    partnerCount,
-    email,
   } = partner || {};
 
   return (
-    <div>
+    <div data-aos="zoom-in">
       <div className="card bg-base-100 shadow-sm ">
         <figure>
           <img

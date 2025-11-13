@@ -52,7 +52,10 @@ const Login = () => {
           Sign in to continue your study journey
         </p>
 
-        <div className="card bg-base-100 w-full shrink-0 shadow-2xl mt-5">
+        <div
+          data-aos="zoom-in"
+          className="card bg-base-100 w-full shrink-0 shadow-2xl mt-5"
+        >
           <div className="card-body md:w-xl">
             <form onSubmit={handleLogIn}>
               <fieldset className="fieldset">

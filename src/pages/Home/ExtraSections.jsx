@@ -1,5 +1,6 @@
-import { ArrowRight, Link } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import React from 'react';
+import { Link } from 'react-router';
 
 const ExtraSections = () => {
   return (
@@ -14,10 +15,11 @@ const ExtraSections = () => {
           </p>
 
           <Link
-            to="/find-partners"
-            className="px-2 md:px-4 lg:px-8 py-1 md:py-3 bg-white text-[#FF6B6B] rounded-lg hover:bg-gray-100 transition-colors text-base md:text-lg inline-flex items-center gap-2 font-semibold"
+            to={'/find-partners'}
+            className=" gap-2 font-semibold
+            px-2 md:px-4 lg:px-8 py-1 md:py-3 bg-white text-[#FF6B6B] rounded-lg hover:bg-gray-100 transition-colors text-base md:text-lg inline-flex items-center"
           >
-            Get Started <ArrowRight className="w-5 h-5" />
+            Get Started <ArrowRight size={20} />
           </Link>
         </div>
       </section>

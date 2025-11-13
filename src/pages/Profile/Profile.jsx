@@ -17,9 +17,7 @@ const Profile = () => {
       </section>
 
       <section className="max-w-5xl mx-auto px-2 sm:px-4  py-12">
-        {/* Main Profile Card */}
         <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-          {/* Profile Header */}
           <div className="bg-linear-to-r from-[#FF6B6B]/10 to-[#00B894]/10 p-8">
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="w-40 h-40 rounded-2xl overflow-hidden bg-gray-200 shadow-xl shrink-0">
@@ -69,9 +67,7 @@ const Profile = () => {
             </div>
           </div>
 
-          {/* Profile Details */}
           <div className="p-8 space-y-8">
-            {/* Bio */}
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <BookOpen size={24} className=" text-[#FF6B6B]" />
@@ -80,7 +76,6 @@ const Profile = () => {
               <p className="text-gray-700 leading-relaxed">{user.bio}</p>
             </div>
 
-            {/* Action Buttons */}
             <div className="flex flex-wrap gap-4 pt-4">
               <Link
                 to="/my-connections"
@@ -98,7 +93,6 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* Recent Activity */}
         <div className="mt-8 bg-white rounded-xl shadow-md p-8 border border-gray-100">
           <h3 className="mb-6">Recent Activity</h3>
           <div className="space-y-4">

@@ -13,7 +13,10 @@ const HowItWorks = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="relative bg-white rounded-xl shadow-md p-8 border border-gray-100 hover:shadow-lg transition-shadow">
+            <div
+              data-aos="fade-right"
+              className="relative bg-white rounded-xl shadow-md p-8 border border-gray-100 hover:shadow-lg transition-shadow"
+            >
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-[#FF6B6B] rounded-full flex items-center justify-center text-white text-xl font-bold">
                 1
               </div>
@@ -26,7 +29,11 @@ const HowItWorks = () => {
                 style
               </p>
             </div>
-            <div className="relative bg-white rounded-xl shadow-md p-8 border border-gray-100 hover:shadow-lg transition-shadow">
+
+            <div
+              data-aos="fade-up"
+              className="relative bg-white rounded-xl shadow-md p-8 border border-gray-100 hover:shadow-lg transition-shadow"
+            >
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-[#FF6B6B] rounded-full flex items-center justify-center text-white text-xl font-bold">
                 2
               </div>
@@ -39,7 +46,11 @@ const HowItWorks = () => {
                 location
               </p>
             </div>
-            <div className="relative bg-white rounded-xl shadow-md p-8 border border-gray-100 hover:shadow-lg transition-shadow">
+
+            <div
+              data-aos="fade-left"
+              className="relative bg-white rounded-xl shadow-md p-8 border border-gray-100 hover:shadow-lg transition-shadow"
+            >
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-[#FF6B6B] rounded-full flex items-center justify-center text-white text-xl font-bold">
                 3
               </div>

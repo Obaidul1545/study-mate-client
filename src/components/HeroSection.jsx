@@ -43,7 +43,6 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Carousel */}
         <div className=" bg-white/10 backdrop-blur-sm rounded-2xl p-12 text-center">
           <Swiper
             cssMode={true}

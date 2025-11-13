@@ -12,7 +12,10 @@ const Review = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+          <div
+            data-aos="fade-right"
+            className="bg-white rounded-xl shadow-md p-6 border border-gray-100"
+          >
             <div className="flex items-center gap-4 mb-4">
               <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-200">
                 <img
@@ -47,7 +50,10 @@ const Review = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+          <div
+            data-aos="fade-up"
+            className="bg-white rounded-xl shadow-md p-6 border border-gray-100"
+          >
             <div className="flex items-center gap-4 mb-4">
               <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-200">
                 <img
@@ -84,7 +90,10 @@ const Review = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+          <div
+            data-aos="fade-up"
+            className="bg-white rounded-xl shadow-md p-6 border border-gray-100"
+          >
             <div className="flex items-center gap-4 mb-4">
               <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-200">
                 <img

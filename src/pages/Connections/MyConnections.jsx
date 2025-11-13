@@ -60,12 +60,12 @@ const MyConnections = () => {
       if (result.isConfirmed) {
         axiosInstance
           .put(`/all-requests/${id}`, data)
-          .then((data) => {
+          .then(() => {
             Swal.fire('Updated!', '', 'success');
             setIsModalOpen(false);
             setRefetch(!fetch);
           })
-          .catch((error) => {
+          .catch(() => {
             Swal.fire('Error updating!', '', 'error');
           });
       } else if (result.isDenied) {
@@ -98,7 +98,7 @@ const MyConnections = () => {
             }
             setRefetch(!fetch);
           })
-          .catch((error) => {
+          .catch(() => {
             toast.error('Delete failed!');
           });
       }
@@ -150,6 +150,7 @@ const MyConnections = () => {
                   <th className="px-6 py-4 text-center">Actions</th>
                 </tr>
               </thead>
+
               <tbody>
                 {requests.map((partner) => (
                   <tr
