@@ -1,16 +1,72 @@
-# React + Vite
+# StudyMate — Find Your Perfect Study Partner
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**StudyMate** হলো একটি MERN Stack ভিত্তিক ওয়েব প্ল্যাটফর্ম যা শিক্ষার্থীদের একে
+অপরের সঙ্গে সংযোগ স্থাপন, পড়ার পার্টনার খোঁজা, এবং একসাথে শেখার সুযোগ করে দেয়।  
+এটি এমন একটি প্ল্যাটফর্ম যেখানে ব্যবহারকারীরা বিষয়ভিত্তিক (subject-wise) বা
+লোকেশন অনুযায়ী স্টাডি পার্টনার খুঁজে পেতে পারে।
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Links
 
-## React Compiler
+- **Client Live Link:** [Your Netlify / Surge URL Here]
+- **Server Live Link:** [Your Vercel URL Here]
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**User Authentication:**  
+Firebase Authentication (Email & Password + Google Sign-In)
+
+**Dynamic Navbar:**  
+Login অবস্থা অনুযায়ী লিংক পরিবর্তন হয় (Home, Find Partner, Create Profile, My
+Connections)
+
+**Create Partner Profile (CRUD):**  
+User নিজের পার্টনার প্রোফাইল তৈরি, আপডেট ও ডিলিট করতে পারে
+
+**Find Partner (Search & Sort):**  
+Subject এবং Experience Level অনুযায়ী পার্টনার সার্চ ও সাজানোর সুযোগ
+
+**Partner Request System:**  
+একজন ব্যবহারকারী অন্যের প্রোফাইলে গিয়ে "Send Partner Request" পাঠাতে পারে  
+($inc operator দিয়ে partnerCount বৃদ্ধি পায়)
+
+**Responsive Design:**  
+পুরো ওয়েবসাইট মোবাইল, ট্যাবলেট, ও ডেস্কটপে সুন্দরভাবে কাজ করে
+
+**UI Enhancements:**
+
+- AOS Animation
+- Dark/Light Theme Toggle
+- SweetAlert2 ও React-Toastify দিয়ে সুন্দর নোটিফিকেশন
+- Custom Loading Spinner
+
+---
+
+### Frontend
+
+- React
+- React Router
+- Tailwind CSS
+- DaisyUI
+- AOS Animation
+- Swiper.js
+- Axios
+- React Icons
+- Lucide React
+- React Toastify
+- SweetAlert2
+- React Spinners
+
+### Backend
+
+- Node.js
+- Express.js
+- MongoDB
+- Dotenv
+
+### Authentication
+
+- Firebase Authentication (Email/Password + Google Sign-In)
