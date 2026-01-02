@@ -68,7 +68,7 @@ const FindPartners = () => {
                   type="submit"
                   className="btn bg-[#FF6B6B] rounded-r-lg text-white absolute right-0 h-12.5 top-0"
                 >
-                  Secondary
+                  Search
                 </button>
               </div>
             </form>
@@ -95,7 +95,7 @@ const FindPartners = () => {
         {loading ? (
           <LoadingSpinner />
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
             {partners?.length === 0 ? (
               <div className="text-center py-16 col-span-3">
                 <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">

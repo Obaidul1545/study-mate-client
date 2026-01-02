@@ -40,7 +40,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center mt-10">
+    <div className="flex justify-center my-10">
       <div>
         <div className="flex justify-center mb-3">
           <span className="bg-linear-to-r from-[#FF6B6B] to-[#00B894] inline-flex p-3 rounded-2xl text-center">

@@ -36,6 +36,12 @@ const Navbar = () => {
       <NavLink to="/find-partners" className="custom-style">
         Find Partner
       </NavLink>
+      <NavLink to="/contact" className="custom-style">
+        Contact
+      </NavLink>
+      <NavLink to="/about" className="custom-style">
+        About us
+      </NavLink>
       {user && (
         <>
           <NavLink to="/my-connections" className="custom-style">
@@ -46,7 +52,6 @@ const Navbar = () => {
           </NavLink>
         </>
       )}
-
 
       {user ? (
         <div className="dropdown dropdown-end z-50">

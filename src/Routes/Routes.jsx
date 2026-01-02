@@ -10,6 +10,8 @@ import CreatePartner from '../pages/Partners/CreatePartner';
 import PrivateRoute from './PrivateRoute';
 import PartnerDetails from '../pages/Partners/PartnerDetails';
 import ErrorPage from '../components/ErrorPage';
+import Contact from '../pages/contact/Contect';
+import AboutUs from '../pages/AboutUs/AboutUs';
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
+      },
+      {
+        path: 'contact',
+        element: <Contact></Contact>,
+      },
+      {
+        path: 'about',
+        element: <AboutUs></AboutUs>,
       },
       {
         path: 'login',
