@@ -1,6 +1,5 @@
 import { MessageCircle, Search, UserPlus } from 'lucide-react';
 
-
 const HowItWorks = () => {
   return (
     <>
@@ -15,7 +14,7 @@ const HowItWorks = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div
               data-aos="fade-right"
-              className="relative bg-white rounded-xl shadow-md p-8 border border-gray-100 hover:shadow-lg transition-shadow"
+              className="relative bg-white rounded-xl shadow-md p-8 border border-gray-100 hover:scale-103 hover:shadow-2xl transition-all"
             >
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-[#FF6B6B] rounded-full flex items-center justify-center text-white text-xl font-bold">
                 1
@@ -32,7 +31,7 @@ const HowItWorks = () => {
 
             <div
               data-aos="fade-up"
-              className="relative bg-white rounded-xl shadow-md p-8 border border-gray-100 hover:shadow-lg transition-shadow"
+              className="relative bg-white rounded-xl shadow-md p-8 border border-gray-100 hover:scale-103 hover:shadow-2xl transition-all"
             >
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-[#FF6B6B] rounded-full flex items-center justify-center text-white text-xl font-bold">
                 2
@@ -49,7 +48,7 @@ const HowItWorks = () => {
 
             <div
               data-aos="fade-left"
-              className="relative bg-white rounded-xl shadow-md p-8 border border-gray-100 hover:shadow-lg transition-shadow"
+              className="relative bg-white rounded-xl shadow-md p-8 border border-gray-100 hover:scale-103 hover:shadow-2xl transition-all"
             >
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-[#FF6B6B] rounded-full flex items-center justify-center text-white text-xl font-bold">
                 3
