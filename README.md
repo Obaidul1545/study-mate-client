@@ -69,3 +69,13 @@ Subject এবং Experience Level অনুযায়ী পার্টনা�
 ### Authentication
 
 - Firebase Authentication (Email/Password + Google Sign-In)
+
+## Running Locally
+
+Follow these steps to run the project on your local machine:
+
+```bash
+git clone https://github.com/Obaidul1545/study-mate-client
+npm install
+npm run dev
+
