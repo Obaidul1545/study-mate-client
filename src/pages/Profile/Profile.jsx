@@ -1,4 +1,3 @@
-
 import useAuth from '../../Hooks/useAuth';
 import { Link } from 'react-router';
 import { BookOpen, Calendar, Edit, Mail, MapPin } from 'lucide-react';
@@ -41,7 +40,7 @@ const Profile = () => {
                     </div>
                   </div>
                   <Link
-                    to="/create-profile"
+                    to="/dashboard/create-profile"
                     className="px-5 py-2 bg-[#FF6B6B] text-white rounded-lg hover:bg-[#ff5252] transition-colors flex items-center gap-2"
                   >
                     <Edit size={16} />
@@ -78,7 +77,7 @@ const Profile = () => {
 
             <div className="flex flex-wrap gap-4 pt-4">
               <Link
-                to="/my-connections"
+                to="/dashboard/my-connections"
                 className="px-6 py-3 bg-[#00B894] text-white rounded-lg hover:bg-[#00a085] transition-colors"
               >
                 View My Connections

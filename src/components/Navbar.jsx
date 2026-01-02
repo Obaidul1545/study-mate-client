@@ -44,11 +44,8 @@ const Navbar = () => {
       </NavLink>
       {user && (
         <>
-          <NavLink to="/my-connections" className="custom-style">
-            My Connections
-          </NavLink>
-          <NavLink to="/create-profile" className="custom-style">
-            Create Partner Profile
+          <NavLink to="/dashboard" className="custom-style">
+            Dashboard
           </NavLink>
         </>
       )}
@@ -81,7 +78,7 @@ const Navbar = () => {
             </div>
 
             <Link
-              to="/profile"
+              to="/dashboard/profile"
               className="custom-style inline-flex items-center my-3"
             >
               <User size={18} /> Profile

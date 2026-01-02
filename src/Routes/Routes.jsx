@@ -12,6 +12,8 @@ import PartnerDetails from '../pages/Partners/PartnerDetails';
 import ErrorPage from '../components/ErrorPage';
 import Contact from '../pages/contact/Contect';
 import AboutUs from '../pages/AboutUs/AboutUs';
+import DashboardLayout from '../layouts/DashboardLayout';
+import DashboardHome from '../pages/DashboardHome/DashboardHome';
 
 export const router = createBrowserRouter([
   {
@@ -51,29 +53,32 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+    ],
+  },
+  {
+    path: 'dashboard',
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
+    ),
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        index: true,
+        element: <DashboardHome></DashboardHome>,
+      },
       {
         path: 'my-connections',
-        element: (
-          <PrivateRoute>
-            <MyConnections></MyConnections>
-          </PrivateRoute>
-        ),
+        element: <MyConnections></MyConnections>,
       },
       {
         path: 'create-profile',
-        element: (
-          <PrivateRoute>
-            <CreatePartner></CreatePartner>
-          </PrivateRoute>
-        ),
+        element: <CreatePartner></CreatePartner>,
       },
       {
         path: 'profile',
-        element: (
-          <PrivateRoute>
-            <Profile></Profile>
-          </PrivateRoute>
-        ),
+        element: <Profile></Profile>,
       },
     ],
   },

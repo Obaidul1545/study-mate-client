@@ -59,10 +59,7 @@ const CreatePartner = () => {
         </div>
       </section>
 
-      <section
-        data-aos="zoom-in"
-        className="max-w-3xl mx-auto px-2 sm:px-6 lg:px-6 py-12"
-      >
+      <section className="max-w-3xl mx-auto px-2 sm:px-6 lg:px-6 py-12">
         <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>

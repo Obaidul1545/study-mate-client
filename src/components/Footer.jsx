@@ -47,7 +47,7 @@ const Footer = () => {
                 <>
                   <li>
                     <Link
-                      to="/create-profile"
+                      to="/dashboard/create-profile"
                       className="text-gray-300 hover:text-[#FF6B6B] transition-colors"
                     >
                       Create Partner Profile
@@ -55,7 +55,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      to="/my-connections"
+                      to="/dashboard/my-connections"
                       className="text-gray-300 hover:text-[#FF6B6B] transition-colors"
                     >
                       My Connections

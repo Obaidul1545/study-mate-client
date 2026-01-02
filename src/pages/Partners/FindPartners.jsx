@@ -97,7 +97,7 @@ const FindPartners = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
             {partners?.length === 0 ? (
-              <div className="text-center py-16 col-span-3">
+              <div className="text-center py-16 col-span-4">
                 <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <Search size={48} className=" text-gray-400" />
                 </div>
