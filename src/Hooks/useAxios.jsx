@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://study-mate-server-iota.vercel.app',
 });
 
 const useAxios = () => {
@@ -9,5 +9,3 @@ const useAxios = () => {
 };
 
 export default useAxios;
-
-// baseURL: 'https://study-mate-server-.vercel.app'

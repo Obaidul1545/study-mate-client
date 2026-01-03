@@ -103,7 +103,6 @@ const DashboardHome = () => {
                 <Tooltip />
                 <Legend />
                 <Bar dataKey="partners" fill="#00B894" radius={[6, 6, 0, 0]} />
-                <Bar dataKey="requests" fill="#FF6B6B" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
