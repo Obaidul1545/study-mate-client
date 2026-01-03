@@ -1,9 +1,30 @@
-import useAuth from '../../Hooks/useAuth';
 import { Link } from 'react-router';
 import { BookOpen, Calendar, Edit, Mail, MapPin } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import useAxios from '../../Hooks/useAxios';
+import useAuth from '../../Hooks/useAuth';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 const Profile = () => {
   const { user } = useAuth();
+  const axiosInstance = useAxios();
+  const [loading, setLoading] = useState(true);
+  const [DBUser, setDBUser] = useState({});
+
+  useEffect(() => {
+    setLoading(true);
+    axiosInstance
+      .get(`/users?email=${user.email}`)
+      .then((data) => {
+        setDBUser(data.data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  }, [axiosInstance, setLoading, user]);
+
+  if (loading) return <LoadingSpinner></LoadingSpinner>;
   return (
     <>
       <section className="bg-linear-to-r from-[#FF6B6B] to-[#00B894] text-white py-12">
@@ -21,8 +42,8 @@ const Profile = () => {
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="w-40 h-40 rounded-2xl overflow-hidden bg-gray-200 shadow-xl shrink-0">
                 <img
-                  src={user.photoURL}
-                  alt={user.displayName}
+                  src={DBUser.photoURL}
+                  alt={DBUser.displayName}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -31,7 +52,7 @@ const Profile = () => {
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <h2 className="text-3xl font-bold mb-3">
-                      {user.displayName}
+                      {DBUser.displayName}
                     </h2>
                     <div className="flex flex-wrap gap-2 mb-4">
                       <span className="px-3 py-1 bg-[#00B894] text-white text-sm rounded-full">
@@ -44,22 +65,25 @@ const Profile = () => {
                     className="px-5 py-2 bg-[#FF6B6B] text-white rounded-lg hover:bg-[#ff5252] transition-colors flex items-center gap-2"
                   >
                     <Edit size={16} />
-                    Edit Profile
+                    Create Partners Profile
                   </Link>
                 </div>
 
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 text-gray-700">
                     <Mail size={20} className=" text-[#FF6B6B]" />
-                    <span>{user.email}</span>
+                    <span>{DBUser.email}</span>
                   </div>
                   <div className="flex items-center gap-2 text-gray-700">
                     <MapPin size={20} className=" text-[#FF6B6B]" />
-                    <span>{user.location}</span>
+                    <span>{DBUser?.location || 'Not added'}</span>
                   </div>
                   <div className="flex items-center gap-2 text-gray-700">
                     <Calendar size={20} className=" text-[#FF6B6B]" />
-                    <span>Member since {user.joinedDate}</span>
+                    <span>
+                      Member since{' '}
+                      {new Date(DBUser.createdAt).toLocaleDateString()}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -72,7 +96,9 @@ const Profile = () => {
                 <BookOpen size={24} className=" text-[#FF6B6B]" />
                 <h3>About Me</h3>
               </div>
-              <p className="text-gray-700 leading-relaxed">{user.bio}</p>
+              <p className="text-gray-700 leading-relaxed">
+                {user?.bio || 'No Added'}
+              </p>
             </div>
 
             <div className="flex flex-wrap gap-4 pt-4">

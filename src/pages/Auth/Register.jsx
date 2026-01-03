@@ -3,6 +3,7 @@ import React, { use, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
 import { toast } from 'react-toastify';
+import useAxios from '../../Hooks/useAxios';
 
 const Register = () => {
   const { signInGoogle, createUser } = use(AuthContext);
@@ -11,6 +12,7 @@ const Register = () => {
   const [passwordError, setPasswordError] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
+  const axiosInstance = useAxios();
 
   const handleCreateUser = (e) => {
     e.preventDefault();
@@ -33,10 +35,20 @@ const Register = () => {
     } else {
       setPasswordError('');
     }
-    // const photoUrl = e.target.photo.value;
+    const photoUrl = e.target.photo.value;
 
     createUser(email, password)
       .then(() => {
+        // update user data base
+        const userInfo = {
+          displayName: name,
+          email: email,
+          photoURL: photoUrl,
+        };
+        // database
+
+        axiosInstance.post('/users', userInfo).then(() => {});
+
         toast.success('Register Successful!');
         navigate(`${location.state ? location.state : '/'}`);
       })
@@ -48,9 +60,16 @@ const Register = () => {
   const handleSignInGoogle = (e) => {
     e.preventDefault();
     signInGoogle()
-      .then(() => {
-        toast.success('Login Successful!');
-        navigate(`${location.state ? location.state : '/'}`);
+      .then((result) => {
+        const userInfo = {
+          displayName: result.user.displayName,
+          email: result.user.email,
+          photoURL: result.user.photoURL,
+        };
+        axiosInstance.post('/users', userInfo).then(() => {
+          toast.success('Login Successful!');
+          navigate(`${location.state ? location.state : '/'}`);
+        });
       })
       .catch((error) => {
         toast.error(error.message);

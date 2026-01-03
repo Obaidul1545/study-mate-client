@@ -3,10 +3,29 @@ import { Link, NavLink } from 'react-router';
 import useAuth from '../Hooks/useAuth';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import useAxios from '../Hooks/useAxios';
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+  const axiosInstance = useAxios();
+  const [loading, setLoading] = useState(true);
+  const [DBUser, setDBUser] = useState({});
+
+  useEffect(() => {
+    if (user?.email) {
+      setLoading(true);
+      axiosInstance
+        .get(`/users?email=${user?.email || ''}`)
+        .then((data) => {
+          setDBUser(data.data);
+          setLoading(false);
+        })
+        .catch(() => {
+          setLoading(false);
+        });
+    }
+  }, [axiosInstance, setLoading, user]);
 
   useEffect(() => {
     const html = document.querySelector('html');
@@ -61,10 +80,7 @@ const Navbar = () => {
               <img
                 alt="Tailwind CSS Navbar component"
                 referrerPolicy="no-referrer"
-                src={
-                  user.photoURL ||
-                  'https://i.ibb.co.com/sdGfkZS4/dummy-user.png'
-                }
+                src={DBUser?.photoURL}
               />
             </div>
           </div>
@@ -73,8 +89,8 @@ const Navbar = () => {
             className="menu  menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
           >
             <div className=" pb-3 border-b border-b-gray-200">
-              <li className="text-sm font-bold">{user.displayName}</li>
-              <li className="text-xs">{user.email}</li>
+              <li className="text-sm font-bold">{DBUser.displayName}</li>
+              <li className="text-xs">{DBUser.email}</li>
             </div>
 
             <Link

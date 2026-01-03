@@ -243,7 +243,7 @@ const MyConnections = () => {
                   >
                     Cancel
                   </button>
-                  <button type="submit" className="btn btn-primary">
+                  <button type="submit" className="btn bg-[#00B894] text-white">
                     Save
                   </button>
                 </div>

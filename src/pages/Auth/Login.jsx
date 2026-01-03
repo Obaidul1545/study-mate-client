@@ -3,10 +3,12 @@ import { use, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
 import { toast } from 'react-toastify';
+import useAxios from '../../Hooks/useAxios';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { signInGoogle, signIn } = use(AuthContext);
+  const axiosInstance = useAxios();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -30,9 +32,16 @@ const Login = () => {
   const handleSignInGoogle = (e) => {
     e.preventDefault();
     signInGoogle()
-      .then(() => {
-        toast.success('Login Successful!');
-        navigate(`${location.state ? location.state : '/'}`);
+      .then((result) => {
+        const userInfo = {
+          displayName: result.user.displayName,
+          email: result.user.email,
+          photoURL: result.user.photoURL,
+        };
+        axiosInstance.post('/users', userInfo).then(() => {
+          toast.success('Login Successful!');
+          navigate(`${location.state ? location.state : '/'}`);
+        });
       })
       .catch((error) => {
         toast.error(error.message);

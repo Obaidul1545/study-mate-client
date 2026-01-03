@@ -193,7 +193,7 @@ const CreatePartner = () => {
                 type="submit"
                 className="w-full px-8 py-4 bg-linear-to-r from-[#FF6B6B] to-[#00B894] text-white rounded-lg hover:shadow-lg transition-all text-lg cursor-pointer font-semibold"
               >
-                Create Profile
+                Create Partner
               </button>
             </div>
           </form>

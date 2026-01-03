@@ -62,7 +62,6 @@ const PartnerDetails = () => {
         toast.error(data.data.message || 'Failed to send request');
       }
     } catch (error) {
-      console.error(error);
       toast.error('Something went wrong!');
     }
   };
